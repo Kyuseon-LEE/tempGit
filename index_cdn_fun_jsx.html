@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        #root{
+            height:50px;
+            line-height: 50px;
+        }
+        #root > ul{
+            width:900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+        }
+        #root > ul > li{
+            width: 130px;;
+            list-style: none;
+            float: right;
+            text-align: center;;
+        }
+        #root > ul > li:hover{
+            background-color: #f2f2f2;
+        }
+        #root > ul > li > a{
+            text-decoration: none;
+            color: #525252;
+        }
+        #root > ul > li > a:hover{
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="root">
+    </div>
+</body>
+</html>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    const Li = (props) => {
+        return(
+            <li><a href={props.url} target={props.target}>{props.menu}</a></li>
+        );
+    }
+    const Ul = () => {
+        return(
+            <ul>
+                <Li url="http://www.naver.com" target="_blank" menu="Go Naver"/>
+                <Li url="http://www.google.com" target="_blank" menu="Go Google"/>
+                <Li url="http://www.daum.net" target="_blank" menu="Go Daum"/>
+                <Li url="http://www.yahoo.com" target="_blank" menu="Go Yahoo"/>
+                <Li url="http://www.w3c.org" target="_blank" menu="Go W3C"/>
+            </ul>
+        );
+    }
+
+    const element = <Ul />
+    ReactDOM.render(element, document.getElementById('root'));
+</script>
